@@ -7,7 +7,7 @@ if(num1.isnumeric()and num2.isnumeric()) :
     if(op == "a" or op == "A") :
         answer = int(num1) + int(num2)
         print(answer)
-    elif(op == "s" or op == "S") : 
+    elif(op == "s" or op == "S") :
         answer = int(num1) - int(num2)
         print(answer)
     elif(op == "m" or op == "M") :
@@ -18,6 +18,6 @@ if(num1.isnumeric()and num2.isnumeric()) :
         print(answer)
     else :
         print("You can't type this letter")
-        print("You can only type a, s, m, or d")       
+        print("You can only type a, s, m, or d")
 else :
     print("These inputs have to be numbers")
