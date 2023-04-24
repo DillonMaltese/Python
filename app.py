@@ -17,7 +17,7 @@ def checkIfProcessRunning(processName):
 
 chromeRunning = True
 while chromeRunning:
-    if checkIfProcessRunning('Music'):
+    if checkIfProcessRunning('Discord'):
         #Only happens if the program is running
         print('Instance of Chrome is Running...waiting.')
         time.sleep(10) # Wait 30 seconds and try again
