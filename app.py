@@ -17,10 +17,12 @@ def checkIfProcessRunning(processName):
 
 chromeRunning = True
 while chromeRunning:
-    if checkIfProcessRunning('chrome'):
+    if checkIfProcessRunning('Music'):
+        #Only happens if the program is running
         print('Instance of Chrome is Running...waiting.')
-        time.sleep(30) # Wait 30 seconds and try again
+        time.sleep(10) # Wait 30 seconds and try again
         print('Checking again...')
     else:
+        #Only happens if the program is not running
         print('Chrome is not running, good to go.')
         chromeRunning = False # Sets chromeRunning False to exit loop
