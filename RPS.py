@@ -1,7 +1,7 @@
 import random
 
 gameOver = False
-botAnswer = ''
+botAnswer = 0
 playAnswer = ''
 
 
@@ -9,21 +9,16 @@ def player(pAnswer):
     pAnswer = input('Do you want Rock Paper or Scissors\nChoose r, p, or s\n')
 
 
-def bot(bAnswer):
+def bot(num):
     num = random.randint(1, 3)
-    if num == 1:
-        bAnswer = 'r'
-    elif num == 2:
-        bAnswer = 'p'
-    elif num == 3:
-        bAnswer = 's'
-    print("The bot chose " + bAnswer)
+    print("The bot chose " + num)
 
 
 while not gameOver:
     playAnswer = input('Do you want Rock Paper or Scissors\nChoose r, p, or s\n')
     bot(botAnswer)
-    print(playAnswer)
+    print('player ' + playAnswer)
+    print('bot ' + botAnswer)
     if playAnswer == 'r' and botAnswer == 's' or playAnswer == 'p' and botAnswer == 'r' or playAnswer == 's' and botAnswer == 'p':
         print('You won')
     elif botAnswer == 'r' and playAnswer == 's' or botAnswer == 'p' and playAnswer == 'r' or botAnswer == 's' and playAnswer == 'p':
