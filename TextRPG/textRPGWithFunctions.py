@@ -3,26 +3,28 @@
 #Enemy has health + same type of enemy has different stats/attributes
 from random import randint
 import attackMath as a
-
+global Class, chose, pHP, eHP, mainWeaponDamage, mainWeaponName, mainWeaponSpeed, doubleAttackPerc, specialAttackPerc, enemyAlive, doubleAttackAns, specialAttack, hp
 Class = ''
 chose = False
 pHP = 0
 eHP = 0
 mainWeaponName = ''
-mainWeaponDamage = 0
+mainWeaponDamage = 1
 mainWeaponSpeed = 0
 doubleAttackPerc = 0
 specialAttackPerc = 25
+specialAttack = False
+endDamage = 0
 
 enemyAlive = True
 doubleAttackAns = 0
-doubleAttack = False
 
 
-def Main(chose, mainWeaponDamage, mainWeaponName, mainWeaponSpeed, pHP, eHP, doubleAttackPerc, enemyAlive, Class, doubleAttackAns, doubleAttack):
+def Main(chose, mainWeaponDamage, mainWeaponName, mainWeaponSpeed, pHP, eHP, doubleAttackPerc, enemyAlive, Class, doubleAttackAns, specialAttack):
+  
   pickClass(chose, pHP, mainWeaponName, mainWeaponDamage, mainWeaponSpeed)
   doubleAttackPerc = mainWeaponSpeed*2
-  Enemy1(eHP, pHP, mainWeaponSpeed, mainWeaponName, mainWeaponDamage, doubleAttackPerc, enemyAlive, Class, doubleAttackAns, doubleAttack)
+  Enemy1(eHP, pHP, mainWeaponSpeed, mainWeaponName, mainWeaponDamage, doubleAttackPerc, enemyAlive, Class, doubleAttackAns, specialAttack)
 
 def pickClass(chose, hp, mainWeaponName, mainWeaponDamage, mainWeaponSpeed):
   #Berserk = 200hp
@@ -30,7 +32,7 @@ def pickClass(chose, hp, mainWeaponName, mainWeaponDamage, mainWeaponSpeed):
   #Rogue = 125hp
   #Archer = 165hp
   while chose == False:
-    classInt = int(input('Do you want to start as a berserk, mage, rogue, or archer\nClick 1 for berserk, 2 for mage, 3 for rogue or 4 for archer'))
+    classInt = int(input('Do you want to start as a berserk, mage, rogue, or archer\nClick 1 for berserk, 2 for mage, 3 for rogue or 4 for archer '))
     if classInt == 1: 
       #Ability to go berserk (Doubles attack for next 3)
       Class = 'b'
@@ -64,17 +66,20 @@ def pickClass(chose, hp, mainWeaponName, mainWeaponDamage, mainWeaponSpeed):
       hp = 165
     else: print("That option is not allowed")
 
-def Enemy1(eHP, pHP, mainWeaponSpeed, mainWeaponName, mainWeaponDamage, doubleAttackPerc, enemyAlive, Class, doubleAttackAns, doubleAttack):
+    return mainWeaponSpeed, mainWeaponName, mainWeaponDamage, Class, hp
+
+def Enemy1(eHP, pHP, mainWeaponSpeed, mainWeaponName, mainWeaponDamage, doubleAttackPerc, enemyAlive, Class, doubleAttackAns, specialAttack):
     #First enemy = 300hp
     #Player can attack, run, block, use item
     eHP = 300
     print('You encounter your first enemy. He has', eHP, 'and you have', pHP, 'What shall you do?')
     while enemyAlive:
-      answer = int(input("Press 1 to attack\nPress 2 to block\nPress 3 to use an item \nPress 4 to attempt to run"))
+      answer = int(input("Press 1 to attack\nPress 2 to block\nPress 3 to use an item \nPress 4 to attempt to run "))
       if answer == 1: 
         #Go to attack Menu
-        a.attack(doubleAttackPerc, doubleAttack, mainWeaponDamage, eHP, pHP, Class, specialAttackPerc)
-
+        print('First in text', mainWeaponDamage)
+        eHP, mainWeaponDamage = a.attack(doubleAttackPerc, mainWeaponDamage, eHP, Class, specialAttackPerc, specialAttack)
+        print('Second in text', mainWeaponDamage)
 
       elif answer == 2:
         #Go to block Menu
@@ -91,10 +96,12 @@ def Enemy1(eHP, pHP, mainWeaponSpeed, mainWeaponName, mainWeaponDamage, doubleAt
       else:
         print('This is not an option, you lost your turn')
 
+        return eHP, pHP, mainWeaponDamage, mainWeaponName, mainWeaponSpeed, doubleAttackPerc, doubleAttackAns, specialAttack, specialAttack, Class
+
 
 
     
 
 
 
-Main(chose, mainWeaponDamage, mainWeaponName, mainWeaponSpeed, pHP, eHP, doubleAttackPerc, enemyAlive, Class, doubleAttackAns, doubleAttack)
+Main(chose, mainWeaponDamage, mainWeaponName, mainWeaponSpeed, pHP, eHP, doubleAttackPerc, enemyAlive, Class, doubleAttackAns, specialAttack)
