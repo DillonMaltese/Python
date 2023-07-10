@@ -1,5 +1,5 @@
 # from random import randint
-# import player as player 
+# import sword as s 
 
 # fSword = s.Sword("Starter Sword", 20, "Starter", "Common", 100)
 # Sword2 = s.Sword("Dagger", 76, "GODDDDDD", "GOD", 10000)
@@ -21,5 +21,7 @@ print('Archer: Where you get a bow that does 20 damage, 8 speed, and an ability 
 
 classInt = int(input('So what will it be. 1 for Berserk, 2 for Mage, 3 for rogue, or 4 for archer '))
 if classInt == 1:
-    Player = playa
+    Player = playa.player("Berserk", "GO BERSERK", 5, 30, "Starter Sword", 200)
+elif classInt == 2:
+    Player = playa.player("Mage", "Fire", 10, 25, "Starter Staff", )
 

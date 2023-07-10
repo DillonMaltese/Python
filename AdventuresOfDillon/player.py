@@ -9,4 +9,4 @@ class player:
 
 
     def __str__(self):
-        return f"Class: {self.Class}, Ability: {self.ability}, Speed: {self.speed}, Rarity: {self.rarity}, Durability: {self.durability}"
+        return f"Class: {self.Class}, Ability: {self.ability}, Speed: {self.speed}, Damage: {self.damage}, Weapon: {self.weapon}, Health: {self.health}"
