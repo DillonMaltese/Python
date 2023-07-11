@@ -13,6 +13,18 @@ class player:
     def __str__(self):
         return f"Class: {self.Class}, Ability: {self.ability}, Speed: {self.speed}, Damage: {self.damage}, Weapon: {self.weapon}, Health: {self.health}"
     
+    def specialMove(self, enemyHealth, specialAttack):
+        fireDamage = 5
+
+        if self.Class == "Rogue":
+            print("All righty, back to your turn")
+            return 1
+        elif self.Class == "Mage":
+            print("The enemy was hit for", fireDamage, "because of your fire special move")
+            enemyHealth -= fireDamage
+        elif self.Class == "Berserk":
+            print("t")
+
     def attackMath(self, enemy1Health, specialAttack):
     #Double attack = Speed x 2
     #Special attack = 35 without double attack happening
@@ -48,7 +60,6 @@ class player:
                     damage = startDamage*3
                     print("You used your double attack and special move to freely full charge back. This hit the enemy for", damage)
                     enemy1Health -= damage
-                    specialAttack = True
 
             else:
                 #Just double attack happens
@@ -71,7 +82,8 @@ class player:
                     damage = startDamage*2
                     print("You went Berserk and hit the enemy for 2x damage. This hit him for", damage, "and you will also hit him for 2x damage for the next 2 turns")
                     enemy1Health -= damage
-                    specialAttack = True
+                    specialAttack1 = True
+                    bAttack = 0
                 elif self.Class == "Mage":
                     damage = startDamage
                     print("You used your set fire ability. This hit him for", damage, "and now he will take 5 damage every turn because you set him on fire")
@@ -86,7 +98,6 @@ class player:
                     damage = startDamage*1.5
                     print("You used your special move to freely full charge back. This hit the enemy for", damage)
                     enemy1Health -= damage
-                    specialAttack = True
 
             else:
                 #Normal attack happens
@@ -99,4 +110,10 @@ class player:
             enemy1Health = 0
         else:
             print("The enemy is at", enemy1Health, "health")
+
+        if specialAttack:
+            self.specialMove(enemy1Health, specialAttack)
+        elif specialAttack1:
+            self.specialMove(enemy1Health, specialAttack)
+
         return enemy1Health

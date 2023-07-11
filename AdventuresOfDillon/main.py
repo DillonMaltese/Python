@@ -58,8 +58,9 @@ while not answer1:
     if enemy1.health <= 0:
         answer1 = True
         break
-
-    player.health = enemy1.enemyAttack(player.health)
+    
+    if player.specialMove(enemy1.health, specialAttack) == 0:
+        player.health = enemy1.enemyAttack(player.health)
         
     if player.health <= 0:
         answer1 = True

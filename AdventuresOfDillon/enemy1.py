@@ -12,7 +12,7 @@ class enemy1:
     def enemyAttack(enemy, playerHealth):
         #Enemy has normal + super attack (Has chance to one shot player)
         specialAttack = 100
-        normalAttack = 20
+        normalAttack = 30
         specialAttackPerc = randint(1, 100)
         print("Enemy Special Attack Number:", specialAttackPerc)
         if specialAttackPerc <= 7:
