@@ -8,6 +8,11 @@ answer1 = False
 answer2 = False
 specialAttack = False
 
+sword = wepawn.weapon("Starter Sword", "Sword", 7, 100)
+staff = wepawn.weapon("Starter Staff", "Staff", 7, 100)
+dagger = wepawn.weapon("Starter Dagger", "Dagger", 7, 100)
+bow = wepawn.weapon("Starter Bow", "Bow", 7, 100)
+
 print('Welcome to the Adventures of Dillon. First we need you to pick a class.')
 print('The classes are Berserk: Where you get a sword that does 30 damage, 5 speed, and an ability that lets you deal 2x damage for 3 turns.')
 print('Mage: Where you get a staff that does 25 damage, 10 speed, and an ability that lets you set the enemy on fire, dealing 5 damage until either them or you are dead.')
@@ -21,13 +26,13 @@ while choseClass == False:
         player = playa.player("Berserk", "GO BERSERK", 5, 30, sword, 200)
         choseClass = True
     elif classInt == 2:
-        player = playa.player("Mage", "Fire", 10, 25, "Starter Staff", 150)
+        player = playa.player("Mage", "Fire", 10, 25, staff, 150)
         choseClass = True
     elif classInt == 3:
-        player = playa.player("Rogue", "Avoid Attack", 45, 15, "Starter Dagger", 125)
+        player = playa.player("Rogue", "Avoid Attack", 45, 15, dagger, 125)
         choseClass = True
     elif classInt == 4:
-        player = playa.player("Archer", "double shot at full charge", 5, 20, "Starter Bow", 165)
+        player = playa.player("Archer", "double shot at full charge", 5, 20, bow, 165)
         choseClass = True
     else:
         print("That is not an option.")
