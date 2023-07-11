@@ -23,7 +23,7 @@ print("The speed gives a chance for a double attack for all of the classes excep
 while choseClass == False:
     classInt = int(input('So what will it be. 1 for Berserk, 2 for Mage, 3 for rogue, or 4 for archer '))
     if classInt == 1:
-        player = playa.player("Berserk", "GO BERSERK", 5, 30, sword, 200)
+        player = playa.player("Berserk", "GO BERSERK", 5, 30, sword, 160)
         choseClass = True
     elif classInt == 2:
         player = playa.player("Mage", "Fire", 10, 25, staff, 150)
@@ -56,6 +56,12 @@ while not answer1:
         else:   
             print('This is not an option')
     if enemy1.health <= 0:
+        answer1 = True
+        break
+
+    player.health = enemy1.enemyAttack(player.health)
+        
+    if player.health <= 0:
         answer1 = True
     else:
         answer2 = False
