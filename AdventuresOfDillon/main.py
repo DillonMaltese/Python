@@ -1,9 +1,11 @@
 from random import randint
 import player as playa
 import enemy1 as bigboypants
+import weapons as wepawn
 
 choseClass = False
-answer1 = True
+answer1 = False
+answer2 = False
 specialAttack = False
 
 print('Welcome to the Adventures of Dillon. First we need you to pick a class.')
@@ -16,7 +18,7 @@ print("The speed gives a chance for a double attack for all of the classes excep
 while choseClass == False:
     classInt = int(input('So what will it be. 1 for Berserk, 2 for Mage, 3 for rogue, or 4 for archer '))
     if classInt == 1:
-        player = playa.player("Berserk", "GO BERSERK", 5, 30, "Starter Sword", 200)
+        player = playa.player("Berserk", "GO BERSERK", 5, 30, sword, 200)
         choseClass = True
     elif classInt == 2:
         player = playa.player("Mage", "Fire", 10, 25, "Starter Staff", 150)
@@ -30,20 +32,27 @@ while choseClass == False:
     else:
         print("That is not an option.")
 
-print("You encounter your first boss. You can click: \n1 to attack,\n2 to block, \n3 to use an item, \n 4 to attempt to run.")
+print("You encounter your first boss. You can click: \n1 to attack,\n2 to block, \n3 to use an item, \n4 to attempt to run.")
 enemy1 = bigboypants.enemy1("Eldredge Dragon", 10, 300)
 
-while answer1:
-    answer = int(input('What shall you do? '))
-    if answer == 1:
-        answer1 = False
-    elif answer == 2:
-        answer1 = False
-    elif answer == 3:
-        answer1 = False
-    elif answer == 4:
-        print('You failed to run and lost your turn.')
-        answer1 = False
-    else:   
-        print('This is not an option')
+while not answer1:
+    while not answer2:
+        answer = int(input('What shall you do? '))
+        if answer == 1:
+            enemy1.health = player.attackMath(enemy1.health, specialAttack)
+            answer2 = True
+        elif answer == 2:
+            answer2 = True 
+        elif answer == 3:
+            answer2 = True
+        elif answer == 4:
+            print('You failed to run and lost your turn.')
+            answer2 = True
+        else:   
+            print('This is not an option')
+    if enemy1.health <= 0:
+        answer1 = True
+    else:
+        answer2 = False
+    
 

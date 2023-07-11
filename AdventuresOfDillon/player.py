@@ -32,26 +32,34 @@ class player:
                     damage = self.damage*4
                     print("You went Berserk and hit the enemy for 2x damage with a double attack too. This hit him for", damage, "and you will also hit him for 2x damage for the next 2 turns")
                     enemy1Health -= damage
-                    print("The enemy is at", enemy1Health, "health")
+                    specialAttack = True
                 elif self.Class == "Mage":
                     damage = self.damage*2
                     print("You used your set fire ability and double attack in the same move. This hit him for", damage, "and now he will take 5 damage every turn because you set him on fire")
                     enemy1Health -= damage
-                    print("The enemy is at", enemy1Health, "health")
+                    specialAttack = True
                 elif self.Class == "Rogue":
                     damage = self.damage*3
                     print("You used your triple attack and your special dodge move in the same turn. This hit him for", damage, "you will now dodge his next turn")
                     enemy1Health -= damage
-                    print("The enemy is at", enemy1Health, "health")
+                    specialAttack = True
                 elif self.Class == "Archer":
                     damage = self.damage*3
                     print("You used your double attack and special move to freely full charge back. This hit the enemy for", damage)
                     enemy1Health -= damage
-                    print("The enemy is at", enemy1Health)
+                    specialAttack = True
 
             else:
                 #Just double attack happens
-                damage = self.damage*2
+                if self.Class == "Rogue":
+                    damage = self.damage*3
+                    print("You hit the enemy with a triple attack for", damage, 'health')
+                    enemy1Health -= damage
+
+                else:
+                    damage = self.damage*2
+                    print("You hit the enemy with a double attack for", damage, 'health')
+                    enemy1Health -= damage
 
 
         else:
@@ -62,23 +70,32 @@ class player:
                     damage = self.damage*2
                     print("You went Berserk and hit the enemy for 2x damage. This hit him for", damage, "and you will also hit him for 2x damage for the next 2 turns")
                     enemy1Health -= damage
-                    print("The enemy is at", enemy1Health, "health")
+                    specialAttack = True
                 elif self.Class == "Mage":
                     damage = self.damage
                     print("You used your set fire ability. This hit him for", damage, "and now he will take 5 damage every turn because you set him on fire")
                     enemy1Health -= damage
-                    print("The enemy is at", enemy1Health, "health")
+                    specialAttack = True
                 elif self.Class == "Rogue":
                     damage = self.damage
                     print("You used your special dodge move. This hit him for", damage, "you will now dodge his next turn")
                     enemy1Health -= damage
-                    print("The enemy is at", enemy1Health, "health")
+                    specialAttack = True
                 elif self.Class == "Archer":
                     damage = self.damage*1.5
                     print("You used your special move to freely full charge back. This hit the enemy for", damage)
                     enemy1Health -= damage
-                    print("The enemy is at", enemy1Health)
+                    specialAttack = True
 
             else:
                 #Normal attack happens
                 damage = self.damage
+                print("You hit the enemy for", damage, 'health')
+                enemy1Health -= damage
+
+        if enemy1Health <= 0:
+            print("The enemy is at 0 health.\nNice job you defeated the boss")
+            enemy1Health = 0
+        else:
+            print("The enemy is at", enemy1Health, "health")
+        return enemy1Health
