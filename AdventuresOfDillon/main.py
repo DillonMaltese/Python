@@ -1,19 +1,9 @@
-# from random import randint
-# import sword as s 
-
-# fSword = s.Sword("Starter Sword", 20, "Starter", "Common", 100)
-# Sword2 = s.Sword("Dagger", 76, "GODDDDDD", "GOD", 10000)
-
-# print(Sword2)
-
-# fSword.damage = 15
-
-# print(fSword)
-
 from random import randint
 import player as playa
+import enemy1 as bigboypants
 
 choseClass = False
+answer1 = True
 
 print('Welcome to the Adventures of Dillon. First we need you to pick a class.')
 print('The classes are Berserk: Where you get a sword that does 30 damage, 5 speed, and an ability that lets you deal 2x damage for 3 turns.')
@@ -37,4 +27,18 @@ while choseClass == False:
         choseClass = True
     else:
         print("That is not an option.")
+
+print("You encounter your first boss. You can click: \n1 to attack,\n2 to block, \n3 to use an item, \n 4 to attempt to run.")
+while answer1:
+    answer = int(input('What shall you do? '))
+    if answer == 1:
+        answer1 = False
+    elif answer == 2:
+        answer1 = False
+    elif answer == 3:
+        answer1 = False
+    elif answer == 4:
+        answer1 = False
+    else:   
+        print('This is not an option')
 
