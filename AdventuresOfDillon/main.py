@@ -38,6 +38,7 @@ while answer1:
     elif answer == 3:
         answer1 = False
     elif answer == 4:
+        print('You failed to run and lost your turn.')
         answer1 = False
     else:   
         print('This is not an option')
