@@ -1,4 +1,5 @@
 from random import randint
+import math as m
 
 class enemy1:
     def __init__(enemy, name, damage, health):
@@ -8,6 +9,45 @@ class enemy1:
 
     def __str__(enemy):
         return f"Name: {enemy.name}, Damage: {enemy.damage}, Health: {enemy.health}"
+    
+    def blockGame(enemy):
+        chose = False
+        ans = randint(1, 100)
+        print("answer:", ans)
+        enemyAns = randint(1, 100)
+        print("Enemy answer:", enemyAns)
+        winner = False
+        print("Welcome to the block mini game.")
+        while not chose:
+            playerAns = int(input("Choose a number between 1 and 100 "))
+            if playerAns < 1 or playerAns > 100:
+                print("You can't choose that number.")
+            else:
+                if playerAns < ans:
+                    playA = ans-playerAns
+                    print("PlayA:", playA)
+                else:
+                    playA = playerAns - ans
+                    print("PlayA:", playA)
+                if enemyAns < ans:
+                    enemyA = ans-enemyAns
+                    print("EnemyA:", enemyA)
+                else:
+                    enemyA = enemyAns-ans
+                    print("EnemyA:", enemyA)
+
+                if enemyA < playA:
+                    #Enemy is closer
+                    print("The number was", ans, "and the enemy guessed", enemyAns,"meaning that you lost")
+                elif enemyA == playA:
+                    print("You guys both tied. This means that you lost your turn and now the enemy will attack.")
+                else:
+                    #Player is closer
+                    print("The number was", ans, "and the enemy guessed", enemyAns, "meaning that you won.")
+                    winner = True
+                return winner
+
+
         
     def enemyAttack(enemy, playerHealth):
         #Enemy has normal + super attack (Has chance to one shot player)

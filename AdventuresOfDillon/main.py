@@ -2,11 +2,13 @@ from random import randint
 import player as playa
 import enemy1 as bigboypants
 import weapons as wepawn
+import json
 
 choseClass = False
 answer1 = False
 answer2 = False
 specialAttack = False
+blockGameWinner = False
 
 sword = wepawn.weapon("Starter Sword", "Sword", 7, 100)
 staff = wepawn.weapon("Starter Staff", "Staff", 7, 100)
@@ -38,6 +40,7 @@ while choseClass == False:
         print("That is not an option.")
 
 print("You encounter your first boss. You can click: \n1 to attack,\n2 to block, \n3 to use an item, \n4 to attempt to run.")
+print("The way the block works is that it takes you to a guessing game. If you lose, then you lose your turn but if you win, you deflect the enemy's attack to hit themselves.")
 enemy1 = bigboypants.enemy1("Eldredge Dragon", 10, 300)
 
 while not answer1:
@@ -46,7 +49,16 @@ while not answer1:
         if answer == 1:
             enemy1.health = player.attackMath(enemy1.health, specialAttack)
             answer2 = True
-        elif answer == 2:
+        elif answer == 2:   
+            if enemy1.blockGame():
+                #Player won
+                enemy1.health -= 30
+                print("The enemy has been hit for 30 damage and is not at", enemy1.health)
+                blockGameWinner = True
+                print(blockGameWinner)
+            else:
+                #Player lost
+                blockGameWinner = False
             answer2 = True 
         elif answer == 3:
             answer2 = True
@@ -59,7 +71,10 @@ while not answer1:
         answer1 = True
         break
     
-    if player.specialMove(enemy1.health, specialAttack) == 0:
+    print(blockGameWinner)
+    if player.specialMove(enemy1.health, specialAttack) == 1:
+        player.health = enemy1.enemyAttack(player.health)
+    elif blockGameWinner == False:
         player.health = enemy1.enemyAttack(player.health)
         
     if player.health <= 0:

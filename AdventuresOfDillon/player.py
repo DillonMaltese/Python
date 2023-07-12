@@ -18,12 +18,11 @@ class player:
 
         if self.Class == "Rogue":
             print("All righty, back to your turn")
-            return 1
+            return 0
         elif self.Class == "Mage":
             print("The enemy was hit for", fireDamage, "because of your fire special move")
             enemyHealth -= fireDamage
-        elif self.Class == "Berserk":
-            print("t")
+            return 1
 
     def attackMath(self, enemy1Health, specialAttack):
     #Double attack = Speed x 2
@@ -43,9 +42,8 @@ class player:
                 #Double attack + special attack happens
                 if self.Class == "Berserk":
                     damage = startDamage*4
-                    print("You went Berserk and hit the enemy for 2x damage with a double attack too. This hit him for", damage, "and you will also hit him for 2x damage for the next 2 turns")
+                    print("You went Berserk and hit the enemy for 2x damage with a double attack too. This hit him for", damage)
                     enemy1Health -= damage
-                    specialAttack = True
                 elif self.Class == "Mage":
                     damage = startDamage*2
                     print("You used your set fire ability and double attack in the same move. This hit him for", damage, "and now he will take 5 damage every turn because you set him on fire")
@@ -112,8 +110,6 @@ class player:
             print("The enemy is at", enemy1Health, "health")
 
         if specialAttack:
-            self.specialMove(enemy1Health, specialAttack)
-        elif specialAttack1:
             self.specialMove(enemy1Health, specialAttack)
 
         return enemy1Health
