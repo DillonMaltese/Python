@@ -10,10 +10,10 @@ answer2 = False
 specialAttack = False
 blockGameWinner = False
 
-sword = wepawn.weapon("Starter Sword", "Sword", 7, 100)
-staff = wepawn.weapon("Starter Staff", "Staff", 7, 100)
-dagger = wepawn.weapon("Starter Dagger", "Dagger", 7, 100)
-bow = wepawn.weapon("Starter Bow", "Bow", 7, 100)
+sword = wepawn.weapon("Starter Sword", "Sword", 7, 100, None, False, "Starter", "Start")
+staff = wepawn.weapon("Starter Staff", "Staff", 7, 100, None, False, "Starter", "Start")
+dagger = wepawn.weapon("Starter Dagger", "Dagger", 7, 100, None, False, "Starter", "Start")
+bow = wepawn.weapon("Starter Bow", "Bow", 7, 100, None, False, "Starter", "Start")
 
 print('Welcome to the Adventures of Dillon. First we need you to pick a class.')
 print('The classes are Berserk: Where you get a sword that does 30 damage, 5 speed, and an ability that lets you deal 2x damage for 3 turns.')
@@ -25,16 +25,16 @@ print("The speed gives a chance for a double attack for all of the classes excep
 while choseClass == False:
     classInt = int(input('So what will it be. 1 for Berserk, 2 for Mage, 3 for rogue, or 4 for archer '))
     if classInt == 1:
-        player = playa.player("Berserk", "GO BERSERK", 5, 30, sword, 160)
+        player = playa.player("Berserk", "GO BERSERK", 5, 30, sword, 160, None, False)
         choseClass = True
     elif classInt == 2:
-        player = playa.player("Mage", "Fire", 10, 25, staff, 150)
+        player = playa.player("Mage", "Fire", 10, 25, staff, 150, None, False)
         choseClass = True
     elif classInt == 3:
-        player = playa.player("Rogue", "Avoid Attack", 45, 15, dagger, 125)
+        player = playa.player("Rogue", "Avoid Attack", 45, 15, dagger, 125, None, False)
         choseClass = True
     elif classInt == 4:
-        player = playa.player("Archer", "double shot at full charge", 5, 20, bow, 165)
+        player = playa.player("Archer", "double shot at full charge", 5, 20, bow, 165, None, False)
         choseClass = True
     else:
         print("That is not an option.")
@@ -55,7 +55,6 @@ while not answer1:
                 enemy1.health -= 30
                 print("The enemy has been hit for 30 damage and is not at", enemy1.health)
                 blockGameWinner = True
-                print(blockGameWinner)
             else:
                 #Player lost
                 blockGameWinner = False
@@ -71,7 +70,6 @@ while not answer1:
         answer1 = True
         break
     
-    print(blockGameWinner)
     if player.specialMove(enemy1.health, specialAttack) == 1:
         player.health = enemy1.enemyAttack(player.health)
     elif blockGameWinner == False:

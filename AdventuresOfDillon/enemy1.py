@@ -13,9 +13,7 @@ class enemy1:
     def blockGame(enemy):
         chose = False
         ans = randint(1, 100)
-        print("answer:", ans)
         enemyAns = randint(1, 100)
-        print("Enemy answer:", enemyAns)
         winner = False
         print("Welcome to the block mini game.")
         while not chose:
@@ -25,16 +23,12 @@ class enemy1:
             else:
                 if playerAns < ans:
                     playA = ans-playerAns
-                    print("PlayA:", playA)
                 else:
                     playA = playerAns - ans
-                    print("PlayA:", playA)
                 if enemyAns < ans:
                     enemyA = ans-enemyAns
-                    print("EnemyA:", enemyA)
                 else:
                     enemyA = enemyAns-ans
-                    print("EnemyA:", enemyA)
 
                 if enemyA < playA:
                     #Enemy is closer

@@ -1,17 +1,18 @@
 from random import randint
 
 class player:
-    def __init__(self, Class, ability, speed, damage, weapon, health):
+    def __init__(self, Class, ability, speed, damage, weapon, health, location):
         self.Class = Class
         self.ability = ability
         self.speed = speed
         self.damage = damage
         self.weapon = weapon
         self.health = health
+        self.location = location
 
 
     def __str__(self):
-        return f"Class: {self.Class}, Ability: {self.ability}, Speed: {self.speed}, Damage: {self.damage}, Weapon: {self.weapon}, Health: {self.health}"
+        return f"Class: {self.Class}, Ability: {self.ability}, Speed: {self.speed}, Damage: {self.damage}, Weapon: {self.weapon}, Health: {self.health}, Location: {self.location}"
     
     def specialMove(self, enemyHealth, specialAttack):
         fireDamage = 5
