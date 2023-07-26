@@ -38,5 +38,5 @@ def merge(left, right):
 
 
 
-list = [5, 2, 1, 4, 3, 7, 4, 8, 10, 9]
+list = [5, 2, 1, 4]
 print(mergeSort(list))
