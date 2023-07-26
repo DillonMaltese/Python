@@ -10,10 +10,10 @@ def mergeSort(list):
     leftHalf = list[:middle]
     rightHalf = list[middle:]
 
-    mergeSort(leftHalf)
-    mergeSort(rightHalf)
+    left = mergeSort(leftHalf)
+    right = mergeSort(rightHalf)
 
-    return merge(leftHalf, rightHalf)
+    return merge(left, right)
 
 
 def merge(left, right):
@@ -38,5 +38,5 @@ def merge(left, right):
 
 
 
-list = [5, 2, 1, 4]
+list = [5, 2, 1, 4, 7, 9, 19, 45, 32, 10, 9, 324, 546, 213, 435, 546, 78, 32, 21, 324, 345, 321, 12, 123234]
 print(mergeSort(list))
