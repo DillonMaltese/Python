@@ -1,7 +1,7 @@
 winner = False
 bTurn = True
 board = []
-input = 0
+inputRow = 0
 shape = 'b'
 boardFull = 0
 
@@ -22,13 +22,14 @@ while not winner:
 
     while not chose:
         #Finding the column to go into
-        input = int(input('What column would you like to go into\n'))
+        inputRow = int(input('\nWhat column would you like to go into\n'))
 
-        if input < 8 and input > 0:
+        if inputRow < 8 and inputRow > 0:
             #Making gravity
-            for i in range(6):
-                if board[input][6 - i] == "-":
-                    board[input][6 - i]  = shape
+            for i in reversed(range(6)):
+                print(i)
+                if board[i][inputRow] == "-":
+                    board[i][inputRow]  = shape
 
                     if shape == "b":
                         shape = "r"
@@ -37,6 +38,7 @@ while not winner:
 
                     boardFull += 1
                     chose = True
+                    break
 
         else: 
             print("invalid spot")
