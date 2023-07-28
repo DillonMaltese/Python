@@ -44,3 +44,47 @@ while not winner:
             print("invalid spot")
 
 
+    for x in range(7):
+        for y in range(4):
+            print(x+3)
+            if board[x][y] == board[x+1][y] and board[x][y] == board[x+2][y] and board[x][y] == board[x+3][y]:
+                if board[x][y] == "b":
+                    print("Blue won")
+                    winner = True
+
+                elif board[x][y] == "r":
+                    print("Red won")
+                    winner = True
+
+    for x in range(7):
+        for y in range(4):
+            if board[x][y] == board[x][y+1] and board[x][y] == board[x][y+2] and board[x][y] == board[x][y+3]:
+                if board[x][y] == "b":
+                    print("Blue won")
+                    winner = True
+
+                elif board[x][y] == "r":
+                    print("Red won")
+                    winner = True
+
+
+    for x in range(4):
+        for y in range(4):
+            if board[x][y] == board[x+1][y+1] and board[x][y] == board[x+2][y+2] and board[x][y] == board[x+3][x+3]:
+                if board[x][y] == "b":
+                    print("blue won")
+                    winner = True
+
+                elif board[x][y] == "r":
+                    print("Red won")
+                    winner = True
+
+
+
+    if not winner and boardFull == 42:
+        print("There is a tie")
+        winner = True
+
+
+
+
