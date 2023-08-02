@@ -1,11 +1,6 @@
-import numpy as np
-all_coordinates = np.zeros((0, 2))
+def mul(a, b):
+    if b == 0:
+        return 0
+    return mul(a, b - 1) + a
 
-for y in range(2):
-    for x in range(2):
-        coordinate = np.array([[x,y]])
-
-        # append
-        all_coordinates = np.vstack((all_coordinates, coordinate))
-        print(coordinate)
-print(all_coordinates)
+print(mul(4, 5))
