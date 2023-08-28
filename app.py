@@ -13,7 +13,7 @@ def checkIfProcessRunning(processName):
                                 return True
                 except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
                         pass
-        return False;
+        return False
 
 chromeRunning = True
 while chromeRunning:
