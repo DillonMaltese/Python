@@ -16,10 +16,26 @@
 #         print('x', end=' ')
 #     print(' ')
 
-#Isosceles
+#Equilateral Triangle
+# for i in range(5):
+#     for x in range(5-i):
+#         print('', end=' ')
+#     for x in range(i+1):
+#         print('x', end=' ')
+#     print(' ')
+
+#Diamond
+#For the top
 for i in range(5):
     for x in range(5-i):
-        print(' ', end=' ')
+        print('', end=' ')
     for x in range(i+1):
         print('x', end=' ')
-    print('x')
+    print(' ')
+#For the bottom
+for i in range(5):
+    for x in range(5-i):
+        print('x ', end=' ')
+    for x in range(i+1):
+        print(' ', end=' ')
+    print(' ')
