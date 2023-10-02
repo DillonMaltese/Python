@@ -13,16 +13,22 @@ class Queue:
             print(self.queue[i])
     
     #Adds a number to the back of the queue
-    def enqueue():
-        
+    def enqueue(self, input):
+        self.queue[self.sizeCount] = input
+        sizeCount += 1
     
     #Takes the first element out of the queue and returns it
-    def dequeue():
+    def dequeue(self):
+        placeHolder = self.queue[0]
+        for i in self.sizeCount - 1:
+            self.queue[i] = self.queue[i + 1]
 
+        return placeHolder
 
     #Prints the element that will first come off of the queue but doesn't remove it
-    def peek():
-
+    def peek(self):
+        print(self.sizeCount[0])
 
     #Same as dequeue but just returns nothing if the queue is empty
     def poll():
+        
