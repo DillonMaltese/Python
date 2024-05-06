@@ -20,7 +20,7 @@ while play:
     num2 = int(input('What second number do you want to enter: '))
     valAnswer = True
   elif answer1 == 2:
-    for times in range(maxTimes):
+        for times in range(maxTimes):
       range1 = int(input("Give the start number for the range: "))
       range2 = int(input('Give the last number for the range: '))
       num1 = randint(range1, range2)
@@ -29,7 +29,7 @@ while play:
   while valAnswer and times < maxTimes:
     valOp = True
     op = input("What operation do you want to do?\n Do all of the below:\n+\n-\n*\n/\n")
-    if op == '+':
+        if op == '+':
       print('Your final function is', num1, '+', num2)
       print('Your final answer is ', num1+num2)
     elif op == '-':
