@@ -12,12 +12,12 @@
 #     print('')
 
 #Equilateral
-# for i in range(5):
-#     for x in range(5 - i - 1):
-#         print(' ', end = '')
-#     for y in range(i + 1):
-#         print('x ', end = '')
-#     print('')
+for i in range(5):
+    for x in range(5 - i):
+        print(' ', end = '')
+    for y in range(i + 1):
+        print('* ', end = '')
+    print('')
 
 #Equilateral Triangle
 # for i in range(5):
@@ -29,19 +29,19 @@
 
 #Diamond
 #For the top
-for i in range(5):
-    for x in range(5-i):
-        print('', end=' ')
-    for x in range(i+1):
-        print('x', end=' ')
-    print(' ')
-#For the bottom
-for i in range(5):
-    for x in range(5-i):
-        print('x ', end=' ')
-    for x in range(i+1):
-        print(' ', end=' ')
-    print(' ')
+# for i in range(5):
+#     for x in range(5-i):
+#         print('', end=' ')
+#     for x in range(i+1):
+#         print('x', end=' ')
+#     print(' ')
+# #For the bottom
+# for i in range(5):
+#     for x in range(5-i):
+#         print('x ', end=' ')
+#     for x in range(i+1):
+#         print(' ', end=' ')
+#     print(' ')
 
 #Diamond
 # for i in range(5):
@@ -60,17 +60,17 @@ for i in range(5):
 
 
 #Hollow Diamond
-for i in range(5):
-    for x in range(5 - i - 1):
-        print(' ', end = '')
-    for y in range(i + 1):
-        print('x ', end = '')
-    print('')
+# for i in range(5):
+#     for x in range(5 - i - 1):
+#         print(' ', end = '')
+#     for y in range(i + 1):
+#         print('x ', end = '')
+#     print('')
 
-for i in range(5):
-    for y in range(i + 1):
-        print(' ', end = '')
-    for x in range(5 - i - 1):
-        print('x ', end = '')
-    print('')
->>>>>>> cb1d654c24838ab0c5291a2433299b2e09424bb8
+# for i in range(5):
+#     for y in range(i + 1):
+#         print(' ', end = '')
+#     for x in range(5 - i - 1):
+#         print('x ', end = '')
+#     print('')
+
